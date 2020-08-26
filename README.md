@@ -27,14 +27,139 @@ type Store interface {
 }
 ```
 
-#### Benchmarks
+#### Benchmark results
+<table class="tg">
+<thead>
+  <tr>
+    <th class="tg-bobw" align=Center>Database</th>
+    <th class="tg-amwm" align=Center>Counter</th>
+    <th class="tg-amwm" align=Center>ns/op</th>
+    <th class="tg-amwm" align=Center>B/op </th>
+    <th class="tg-amwm" align=Center>allocs/op</th>
+    <th class="tg-amwm" align=Center>Counter</th>
+    <th class="tg-amwm" align=Center>ns/op</th>
+    <th class="tg-amwm" align=Center>B/op </th>
+    <th class="tg-amwm" align=Center>allocs/op</th>
+    <th class="tg-amwm" align=Center>Counter</th>
+    <th class="tg-amwm" align=Center>ns/op</th>
+    <th class="tg-amwm" align=Center>B/op </th>
+    <th class="tg-amwm" align=Center>allocs/op</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td class="tg-5frq">operation</td>
+    <td class="tg-5frq" colspan="4" align=Center>Write</td>
+    <td class="tg-5frq" colspan="4" align=Center>Read</td>
+    <td class="tg-5frq" colspan="4" align=Center>Delete</td>
+  </tr>
+  <tr>
+    <td class="tg-8d8j" align=Center>ristretto</td>
+    <td class="tg-8d8j" align=Center>1366906</td>
+    <td class="tg-8d8j" align=Center>767</td>
+    <td class="tg-8d8j" align=Center>545</td>
+    <td class="tg-8d8j" align=Center>5</td>
+    <td class="tg-8d8j" align=Center>143102</td>
+    <td class="tg-8d8j" align=Center>7808</td>
+    <td class="tg-8d8j" align=Center>1004</td>
+    <td class="tg-8d8j" align=Center>20</td>
+    <td class="tg-8d8j" align=Center>1645538</td>
+    <td class="tg-8d8j" align=Center>692</td>
+    <td class="tg-8d8j" align=Center>143</td>
+    <td class="tg-8d8j" align=Center>4</td>
+  </tr>
+  <tr>
+    <td class="tg-8d8j" align=Center>bigcache</td>
+    <td class="tg-8d8j" align=Center>377283</td>
+    <td class="tg-8d8j" align=Center>2670</td>
+    <td class="tg-8d8j" align=Center>748</td>
+    <td class="tg-8d8j" align=Center>5</td>
+    <td class="tg-8d8j" align=Center>200302</td>
+    <td class="tg-8d8j" align=Center>6082</td>
+    <td class="tg-8d8j" align=Center>602</td>
+    <td class="tg-8d8j" align=Center>19</td>
+    <td class="tg-8d8j" align=Center>5419498</td>
+    <td class="tg-8d8j" align=Center>246</td>
+    <td class="tg-8d8j" align=Center>16</td>
+    <td class="tg-8d8j" align=Center>2</td>
+  </tr>
+  <tr>
+    <td class="tg-8d8j" align=Center>In-Memory</td>
+    <td class="tg-8d8j" align=Center>511095</td>
+    <td class="tg-8d8j" align=Center>2677</td>
+    <td class="tg-8d8j" align=Center>538</td>
+    <td class="tg-8d8j" align=Center>5</td>
+    <td class="tg-8d8j" align=Center>157450</td>
+    <td class="tg-8d8j" align=Center>6418</td>
+    <td class="tg-8d8j" align=Center>371</td>
+    <td class="tg-8d8j" align=Center>17</td>
+    <td class="tg-8d8j" align=Center>3667006</td>
+    <td class="tg-8d8j" align=Center>332</td>
+    <td class="tg-8d8j" align=Center>80</td>
+    <td class="tg-8d8j" align=Center>4</td>
+  </tr>
+  <tr>
+    <td class="tg-8d8j" align=Center>moss</td>
+    <td class="tg-8d8j" align=Center>79590</td>
+    <td class="tg-8d8j" align=Center>14346</td>
+    <td class="tg-8d8j" align=Center>4994</td>
+    <td class="tg-8d8j" align=Center>54</td>
+    <td class="tg-8d8j" align=Center>7750376</td>
+    <td class="tg-8d8j" align=Center>166</td>
+    <td class="tg-8d8j" align=Center>1</td>
+    <td class="tg-8d8j" align=Center>0</td>
+    <td class="tg-8d8j" align=Center>9174933</td>
+    <td class="tg-8d8j" align=Center>150</td>
+    <td class="tg-8d8j" align=Center>90</td>
+    <td class="tg-8d8j" align=Center>0</td>
+  </tr>
+  <tr>
+    <td class="tg-8d8j" align=Center>pudge</td>
+    <td class="tg-8d8j" align=Center>27457</td>
+    <td class="tg-8d8j" align=Center>48396</td>
+    <td class="tg-8d8j" align=Center>850</td>
+    <td class="tg-8d8j" align=Center>22</td>
+    <td class="tg-8d8j" align=Center>117904</td>
+    <td class="tg-8d8j" align=Center>8647</td>
+    <td class="tg-8d8j" align=Center>645</td>
+    <td class="tg-8d8j" align=Center>21</td>
+    <td class="tg-8d8j" align=Center>3468951</td>
+    <td class="tg-8d8j" align=Center>301</td>
+    <td class="tg-8d8j" align=Center>40</td>
+    <td class="tg-8d8j" align=Center>4</td>
+  </tr>
+  <tr>
+    <td class="tg-8d8j" align=Center>badgerdb</td>
+    <td class="tg-8d8j" align=Center>7477</td>
+    <td class="tg-8d8j" align=Center>168751</td>
+    <td class="tg-8d8j" align=Center>15363</td>
+    <td class="tg-8d8j" align=Center>79</td>
+    <td class="tg-8d8j" align=Center>124051</td>
+    <td class="tg-8d8j" align=Center>10153</td>
+    <td class="tg-8d8j" align=Center>1791</td>
+    <td class="tg-8d8j" align=Center>28</td>
+    <td class="tg-8d8j" align=Center>7509</td>
+    <td class="tg-8d8j" align=Center>185560</td>
+    <td class="tg-8d8j" align=Center>14536</td>
+    <td class="tg-8d8j" align=Center>77</td>
+  </tr>
+  <tr>
+    <td class="tg-8d8j" align=Center>nutsdb</td>
+    <td class="tg-8d8j" align=Center>108</td>
+    <td class="tg-8d8j" align=Center>11160554</td>
+    <td class="tg-8d8j" align=Center>47596</td>
+    <td class="tg-8d8j" align=Center>722</td>
+    <td class="tg-8d8j" align=Center>1</td>
+    <td class="tg-8d8j" align=Center>10198412296</td>
+    <td class="tg-8d8j" align=Center>4357920</td>
+    <td class="tg-8d8j" align=Center>67041</td>
+    <td class="tg-8d8j" align=Center>1</td>
+    <td class="tg-8d8j" align=Center>10100557116</td>
+    <td class="tg-8d8j" align=Center>8148224</td>
+    <td class="tg-8d8j" align=Center>125802</td>
+  </tr>
+</tbody>
+</table>
 
-| Database | counter | ns/op | B/op |allocs/op | counter | ns/op | B/op |allocs/op | counter | ns/op | B/op |allocs/op |
-| --- | --- |--- | --- |--- | --- |--- |--- | --- |--- | --- |--- |--- | --- |--- | --- |
-| ristretto	| 1366906	|767	  |545	 |5	   |143102	|7808	     |1004	  |20	 |1645538 |692	       |143	    |4
-| bigcache	| 377283	|2670	  |748	 |5	   |200302	|6082	     |602	  |19	 |5419498 |246	       |16	    |2
-| In-Memory	| 511095	|2677	  |538	 |5	   |157450	|6418	     |371	  |17	 |3667006 |332	       |80	    |4
-| moss	    | 79590	    |14346	  |4994	 |54   |7750376	|166	     |1	      |0	 |9174933 |150	       |90	    |0
-| pudge	    | 27457	    |48396	  |850	 |22   |117904	|8647	     |645	  |21	 |3468951 |301	       |40	    |4
-| badgerdb	| 7477	    |168751	  |15363 |79   |124051	|10153	     |1791	  |28	 |7509	  |185560      | 14536	|77
-| nutsdb	| 108	    |11160554 |47596 |722  |1	    |10198412296 |4357920 |67041 |1	      |10100557116 |8148224	|125802
+
+
